@@ -6,30 +6,22 @@
 //
 
 import UIKit
-import SwiftUI
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageSliderView = ImageSliderView()
+        let imageSliderView = ImageSliderView2()
+        view.addSubview(imageSliderView)
         
-        let hostingController = UIHostingController(rootView: imageSliderView)
-        
-        addChild(hostingController)
-        
-        view.addSubview(hostingController.view)
-        
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        imageSliderView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            imageSliderView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageSliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageSliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageSliderView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        hostingController.didMove(toParent: self)
     }
 }
 
